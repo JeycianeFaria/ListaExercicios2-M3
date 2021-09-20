@@ -32,8 +32,12 @@ public class Carro {
         System.out.println("Valor: R$ " + valorCarro);
     }
 
-    public void darDesconto(double desconto) {
+    public double darDesconto(double desconto) {
         valorDesconto = desconto * valorCarro;
+        return valorDesconto;
+    }
+
+    public  void atribuirDesconto(){
         valorCarro = valorCarro - valorDesconto;
     }
 
