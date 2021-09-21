@@ -11,7 +11,7 @@ public class Carro {
     double valorCarro;
     double valorDesconto = 0;
 
-
+    //metodo construtor
     public Carro(String nome, String fabricante, String cor, double peso, double valorCarro) {
 
         this.nome = nome;
@@ -22,6 +22,8 @@ public class Carro {
 
     }
 
+
+    //metodo para exibir o Carro
     public void exibirCarro() {
         System.out.println("\n=======================\n");
         System.out.println("Carro: " + nome);
@@ -32,15 +34,20 @@ public class Carro {
         System.out.println("Valor: R$ " + valorCarro);
     }
 
+
+    //metodo para dar Desconto
     public double darDesconto(double desconto) {
         valorDesconto = desconto * valorCarro;
         return valorDesconto;
     }
 
+    //metodo para atribuir o desconto dado
     public  void atribuirDesconto(){
         valorCarro = valorCarro - valorDesconto;
     }
 
+
+    //metodo para pintar o carro com outra cor
     public void pintarCarro(String corDesejada){
         cor = corDesejada;
     }

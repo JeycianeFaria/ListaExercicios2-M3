@@ -4,6 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
 
+        //instanciando cartões
         CartaoCredito cliente1 = new CartaoCredito("Jeyciane", 1000);
 
         cliente1.imprimeFatura();
