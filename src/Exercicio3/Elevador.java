@@ -10,73 +10,93 @@ public class Elevador {
 
 
     //metodo construtor
-    public Elevador(int totalAndares, int capacidadeElevador, int qtdPessoasDentro) {
+    public Elevador(int totalAndares, int capacidadeElevador) {
         this.totalAndares = totalAndares;
         this.capacidadeElevador = capacidadeElevador;
-        this.qtdPessoasDentro = qtdPessoasDentro;
     }
 
     //metodo para exibir o elevador
     public void exibirElevador() {
         System.out.println("\nO elevador está no andar : " + andarAtual);
         System.out.println("Quantidade de pessoas dentro:  " + qtdPessoasDentro);
-        System.out.println("O numero de andares: " + totalAndares);
-        System.out.println("A capacidade maxima de pessoas: " + capacidadeElevador);
+        System.out.println("Número de andares: " + totalAndares);
+        System.out.println("Capacidade maxima de pessoas: " + capacidadeElevador);
     }
 
     //metodo para entrar no elevador
-    public String entrarElevador(int qtdEntrar) {
+    public void entrarElevador(int qtdEntrar) {
 
         int totalPessoas = qtdPessoasDentro + qtdEntrar;
 
         if (totalPessoas <= capacidadeElevador) {
-            qtdPessoasDentro += qtdEntrar;
-            return "\nAinda há espaço, pode entrar!";
+            qtdPessoasDentro = totalPessoas;
+            System.out.println("\nAinda há espaço, pode entrar!");
 
+        } else if (totalPessoas > capacidadeElevador) {
+            System.out.println("\nO elevador não comporta essa quantidade de pessoas!");
+            System.out.println("\nA capacidade maxima de pessoas é de : " + capacidadeElevador);
         } else {
-            return "\nO elevador está lotado, aguarde o proximo!";
+            System.out.println("\nO elevador está lotado, aguarde o proximo!");
+            System.out.println("Quantidade de pessoas dentro do elevador = " + qtdPessoasDentro);
         }
 
     }
 
     //metodo para sair do Elevador
-    public String sairElevador(int qtdSair) {
+    public void sairElevador(int qtdSair) {
 
-        if (qtdPessoasDentro > 0) {
+        int pessoasSaindo = qtdPessoasDentro - qtdSair;
 
+        if (pessoasSaindo > 0) {
             qtdPessoasDentro -= qtdSair;
-            return "\nTchau, tchau!";
+            System.out.println("\nTchau, tchau!");
+
+        } else if (qtdSair > qtdPessoasDentro && qtdPessoasDentro != 0) {
+            System.out.println("\nNão é possivel sair mais pessoas do que as que estão dentro do elevador!");
+            System.out.println("Quantidade de pessoas dentro do elevador = " + qtdPessoasDentro);
 
         } else {
-            return "\nO elevador está vazio!";
+            System.out.println("\nO elevador está vazio!");
         }
 
     }
 
     //metodo para o elevador subir
-    public String subirElevador() {
+    public void subirElevador(int andarDesejado) {
 
-        if (andarAtual < totalAndares) {
+        if (andarDesejado > terreo && andarAtual < andarDesejado) {
 
-            andarAtual++;
-            return "Subindo!";
+            if (andarDesejado <= totalAndares && andarAtual < totalAndares) {
+
+                andarAtual = andarDesejado;
+                System.out.println("\nSubindo para o  " + andarDesejado + "º andar!");
+
+            } else {
+                System.out.println("\nO elevador está no ultimo andar!");
+            }
 
         } else {
-            return "O elevador está no ultimo andar!";
+            System.out.println("\nPara subir digite um andar acima do andar atual!");
         }
 
     }
 
     //metodo para o elevador descer
-    public String descerElevador() {
+    public void descerElevador(int andarDesejado) {
 
-        if (andarAtual > terreo) {
+        if (andarDesejado < totalAndares && andarAtual > andarDesejado) {
 
-            andarAtual--;
-            return "Descendo!";
+            if (andarDesejado >= terreo ) {
+
+                andarAtual = andarDesejado;
+                System.out.println("\nDescendo para o " + andarDesejado + "º andar");
+
+            } else {
+                System.out.println("\nO elevador está no térreo");
+            }
 
         } else {
-            return "O elevador está no térreo";
+            System.out.println("\nPara descer digite um valor abaixo do andar atual!");
         }
 
     }

@@ -5,21 +5,16 @@ public class Main {
     public static void main(String[] args) {
 
         //instanciando elevador
-        Elevador elevador1 = new Elevador(10,8,0);
+        Elevador elevador1 = new Elevador(10,8);
 
         elevador1.exibirElevador();
-        System.out.println(elevador1.entrarElevador(5));
+        elevador1.entrarElevador(15);
         elevador1.exibirElevador();
-        System.out.println(elevador1.entrarElevador(5));
+        elevador1.sairElevador(6);
         elevador1.exibirElevador();
-        System.out.println(elevador1.sairElevador(2));
+        elevador1.subirElevador(8);
         elevador1.exibirElevador();
-        System.out.println(elevador1.subirElevador());
-        System.out.println(elevador1.subirElevador());
-        elevador1.exibirElevador();
-        System.out.println(elevador1.descerElevador());
-        elevador1.exibirElevador();
-
+        elevador1.descerElevador(5);
     }
 
 }
