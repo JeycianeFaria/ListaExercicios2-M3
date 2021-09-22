@@ -44,12 +44,4 @@ public class CartaoCredito {
         System.out.println("Saldo da Fatura: R$ " + saldoFatura);
     }
 
-    //metodo para exibir menu
-    public  void exibirMenu(){
-        System.out.println("\n=====ZupBank=====\n");
-        System.out.println("Digite a opção desejada: ");
-        System.out.println("1- Extrato da Fatura.");
-        System.out.println("2- ");
-    }
-
 }
